@@ -1,0 +1,30 @@
+{
+  "name": "tennis-game",
+  "version": "1.0.0",
+  "description": "plays tennis ",
+  "main": "app.js",
+  "scripts": {
+    "test": "jest",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BirbaManuel/tennis-game.git"
+  },
+  "keywords": [
+    "game",
+    "tennis"
+  ],
+  "author": "Manuel BIRBA",
+  "license": "GNU GENERAL PUBLIC LICENSE",
+  "bugs": {
+    "url": "https://github.com/BirbaManuel/tennis-game/issues"
+  },
+  "homepage": "https://github.com/BirbaManuel/tennis-game#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.4",
+    "express": "^4.17.1",
+    "morgan": "^1.9.1"
+  }
+}
