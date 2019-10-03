@@ -108,6 +108,12 @@ function getPlayers (){
     }
     return resultat
 }
+
+function getPlayer(id){
+	const arrayOfPlayers = getPlayers().players
+	return arrayOfPlayers.find( player => player.id == id)
+}
 /* HANDLERS */
 
 external.getPlayers =  getPlayers
+external.getPlayer =  getPlayer
