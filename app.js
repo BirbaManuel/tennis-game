@@ -17,6 +17,13 @@ app.use(cookieParser())
 
 /* ROUTES */
 app.use("/", playersRouters)
+app.use(function(req, res, next) {
+  res.status(404).json({
+    error: `sorry your request method ${req.method} forward ${
+      req.originalUrl
+    } not match…`,
+  })
+})
 app.set("port", port)
 
 const server = http.createServer(app)
@@ -24,7 +31,6 @@ const server = http.createServer(app)
 server.listen(port)
 server.on("error", onError)
 server.on("listening", onListening)
-
 
 function normalizePort(val) {
   const port = parseInt(val, 10)
