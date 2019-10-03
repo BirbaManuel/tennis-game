@@ -17,7 +17,6 @@ app.use(cookieParser())
 
 /* ROUTES */
 app.use("/", playersRouters)
-/* ROUTES */
 app.set("port", port)
 
 const server = http.createServer(app)
