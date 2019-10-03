@@ -14,7 +14,7 @@ run project
 npm start
 
 open windows brower
-got to http://localhost:8000/players
+go to http://localhost:8000/players
 
 run test
 npm test
