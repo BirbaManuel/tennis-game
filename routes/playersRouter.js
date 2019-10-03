@@ -21,7 +21,7 @@ router.get("/players/:id", async function(req, res) {
     try {
         if (req && req.params.id){
             const id = req.params.id
-            const player = getPlayer(id)
+            const player = await getPlayer(id)
             if(player )
                 return res.status(200).json(player)
             else return res.status(404).json({})
