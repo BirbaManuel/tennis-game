@@ -2,6 +2,8 @@ const external = module.exports = {}
 const fetch = require("node-fetch")
 const PLAYERS_JSON_FILE = require("../data/headtohead.json")
 const PLAYERS_URL = "https://eurosportdigital.github.io/eurosport-node-developer-recruitment/headtohead.json"
+const logger = require("../utils/logger")
+
 /* HANDLERS */
 async function getPlayers (){
     try {
@@ -14,6 +16,7 @@ async function getPlayers (){
         return resultat
     } catch (error){
         return error.message
+        return Promise.reject(error.message)
     }
 }
 
@@ -24,7 +27,7 @@ async function getPlayer(id){
         return resultat
     } catch (error){
 
-        return error.message
+        return Promise.reject(error.message)
     }
 }
 /* HANDLERS */
