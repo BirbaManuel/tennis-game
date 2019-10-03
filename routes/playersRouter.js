@@ -1,6 +1,7 @@
 const express = require("express")
 const router = express.Router()
 const { getPlayers, getPlayer } = require("../handlers/playersHandler")
+const logger = require("../utils/logger")
 
 /* ROUTES */
 router.get("/players", async function(req, res) {
@@ -13,6 +14,7 @@ router.get("/players", async function(req, res) {
             return res.status(400).json({parameter_error: "need request"})
         }
     } catch (e) {
+        logger(e)
         return res.status(500).json({server_error: e})
     }
 })
@@ -30,6 +32,7 @@ router.get("/players/:id", async function(req, res) {
             return res.status(400).json({parameter_error: "need request with param 'id'"})
         }
     } catch (e) {
+        logger(e)
         return res.status(500).json({server_error: e})
     }
 })

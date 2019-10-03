@@ -9,6 +9,7 @@ const debug = require("debug")("app:server")
 const morgan = require("morgan")
 
 const playersRouters = require("./routes/playersRouter")
+const logger = require("./utils/logger")
 
 app.use(morgan(":method :url :status :response-time ms - :res[content-length]"))
 app.use(bodyParser.urlencoded({limit: "50mb", extended: true}))
@@ -58,11 +59,11 @@ function onError(error) {
   // handle specific listen errors with friendly messages
   switch (error.code) {
     case "EACCES":
-      console.error(bind + " requires elevated privileges")
+      logger(bind + " requires elevated privileges")
       process.exit(1)
       break
     case "EADDRINUSE":
-      console.error(bind + " is already in use")
+      logger(bind + " is already in use")
       process.exit(1)
       break
     default:
@@ -72,7 +73,7 @@ function onError(error) {
 
 function onListening() {
   const addr = server.address()
-  console.log(addr)
+  logger(addr)
   const bind = typeof addr === "string"
     ? "pipe " + addr
     : "port " + addr.port
