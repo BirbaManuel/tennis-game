@@ -1,3 +1,4 @@
+const external = module.exports = {}
 const express = require("express")
 const app = express()
 const bodyParser= require("body-parser")
@@ -7,7 +8,7 @@ const port = normalizePort(process.env.PORT || "8000")
 const debug = require("debug")("app:server")
 const morgan = require("morgan")
 
-const playersRouters = require("./routers/players")
+const playersRouters = require("./routes/playersRouter")
 
 app.use(morgan(":method :url :status :response-time ms - :res[content-length]"))
 app.use(bodyParser.urlencoded({limit: "50mb", extended: true}))
@@ -72,3 +73,4 @@ function onListening() {
     : "port " + addr.port
   debug("Listening on " + bind)
 }
+external.app = app

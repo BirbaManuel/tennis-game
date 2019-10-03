@@ -1,5 +1,7 @@
+// const external = module.exports = {}
 const express = require("express")
 const router = express.Router()
+const fetch = require('node-fetch')
 
 router.get("/players", async function(req, res) {
 	try {
@@ -15,7 +17,26 @@ router.get("/players", async function(req, res) {
 	}
 })
 
-module.exports = router
+// router.get("/getplayerbyid/:id", async function(req, res) {
+// 	try {
+// 		if (req){
+// 			const id = req.params.id
+// 			const arrayOfPlayers = await getPlayers()
+// 			const player = getPlayer(id, arrayOfPlayers)
+// 			return  res.status(200).json(player)
+// 		}
+// 		else {
+// 			return res.status(400).json({error: "need request"})
+// 		}
+// 	} catch (e) {
+// 		return res.status(500).json({error: e})
+// 	}
+// })
+
+// function getPlayer(id, Players){
+// 	const arrayOfPlayers = Players.players
+// 	return arrayOfPlayers.find( player => player.id == id)
+// }
 
 /* ROUTES HANDLERS */
 function getPlayers (){
@@ -126,3 +147,5 @@ function getPlayers (){
 	return resultat
 }
 /* ROUTES HANDLERS */
+// external.playersRouter = router
+module.exports = router
