@@ -17,9 +17,24 @@ app.use(cookieParser())
 
 /* ROUTES */
 app.use("/", playersRouters)
+// app.use("/getplayerbyid/:id", playersRouters)
 /* ROUTES */
 app.set("port", port)
 
+// async function getplayerbyid(req, res) {
+//   const id = req.params.id
+//   const protocol = req.protocol
+//   const host = req.headers.host
+//   const route = "/players"
+//   const url = `${protocol}://${host}${route}` || "http://localhost:8000/players"
+//   const arrayOfPlayers = await fetch(url)
+//   const player = getPlayer(id, arrayOfPlayers)
+//   return res.status(200).json(player)
+// }
+
+// function getPlayer(id, arrayOfPlayers){
+// 	return arrayOfPlayers.find( player => player.id === id)
+// }
 const server = http.createServer(app)
 
 server.listen(port)
